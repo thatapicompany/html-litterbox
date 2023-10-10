@@ -1,9 +1,11 @@
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path');
 
 const main = fs.readFileSync('dist/flems.js', 'utf8')
     , runtime = fs.readFileSync('dist/runtime.html', 'utf8')
 
-fs.writeFileSync('dist/flems.html', [
+const filePath = path.resolve(__dirname, '../../app/public')
+fs.writeFileSync(`${filePath}/flems.html`, [
   '/*',
   runtime,
   '<!-- */',

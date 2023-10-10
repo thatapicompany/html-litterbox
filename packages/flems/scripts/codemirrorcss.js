@@ -1,5 +1,6 @@
 const csso = require('csso')
     , fs = require('fs')
+const path= require("path");
 
 const sheets = [
   'node_modules/codemirror/lib/codemirror.css',
@@ -11,7 +12,7 @@ const sheets = [
 module.exports = csso.minify(
   sheets
   .map(f =>
-    fs.readFileSync(f, 'utf8')
+    fs.readFileSync(f.startsWith('node_modules') ? path.resolve(__dirname, `../../../${f}`) : f, 'utf8')
       .replace('\\25BE', '▾')
       .replace('\\25B8', '▸')
   )
