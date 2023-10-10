@@ -89,7 +89,7 @@ export function sanitize(state) {
 }
 
 export const createFlemsIoLink = state => {
-  return 'https://flems.io/#0=' + lz.compressToEncodedURIComponent(
+  return '/#0=' + lz.compressToEncodedURIComponent(
     JSON.stringify(clean(state))
   )
 }
